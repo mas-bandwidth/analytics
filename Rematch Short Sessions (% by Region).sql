@@ -210,7 +210,7 @@ FROM
     COUNT(DISTINCT(session_id)) as total_sessions,
     COUNT(DISTINCT IF(session_duration<60, session_id, NULL)) as short_sessions,
   FROM
-    `analytics.rematch_session_summary`
+    `analytics.session_summary`
   WHERE
     timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 90 DAY)
   GROUP BY

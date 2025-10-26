@@ -8,7 +8,7 @@ FROM
     COUNT(DISTINCT(session_id)) as total_sessions,
     COUNT(DISTINCT IF(likely_vpn_or_cross_region=TRUE, session_id, NULL)) as likely_vpn_sessions,
   FROM
-    `analytics.rematch_session_summary`
+    `analytics.session_summary`
   WHERE
     timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 48 HOUR) AND 
     likely_vpn_or_cross_region IS NOT NULL

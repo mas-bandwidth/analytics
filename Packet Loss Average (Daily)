@@ -9,7 +9,7 @@ WITH
       SUM(IF(next_rtt>0,next_packet_loss,0)) as next_packet_loss,
       SUM(real_packet_loss) as real_packet_loss,
     FROM
-      `analytics.rematch_session_update` as session_update
+      `analytics.session_update` as session_update
     WHERE
       (session_update.timestamp BETWEEN '2025-10-01 00:00:00 UTC' AND '2025-10-31 23:59:59 UTC')
     GROUP BY

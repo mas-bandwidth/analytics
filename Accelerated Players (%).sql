@@ -4,7 +4,7 @@ WITH
     SELECT
       COUNT(DISTINCT user_hash) AS players,
     FROM
-      `analytics.rematch_session_summary` as session_summary
+      `analytics.session_summary` as session_summary
     WHERE
       timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 90 DAY)
   ),
@@ -13,9 +13,9 @@ WITH
     SELECT
       COUNT(DISTINCT user_hash) AS players,
     FROM
-      `analytics.rematch_session_summary` as session_summary
+      `analytics.session_summary` as session_summary
     INNER JOIN
-      `analytics.rematch_session_update` AS session_update
+      `analytics.session_update` AS session_update
     ON
       session_summary.session_id=session_update.session_id and session_summary.duration_on_next>0
     WHERE

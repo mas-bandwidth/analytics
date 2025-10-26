@@ -108,7 +108,7 @@ SELECT
   ) AS europe,
 
 FROM
-  `analytics.rematch_session_summary` as session_summary
+  `analytics.session_summary` as session_summary
 WHERE
   (session_summary.timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 30 DAY))
 GROUP BY

@@ -10,9 +10,9 @@ SELECT
   AVG(IF(next_rtt>0 AND next_packet_loss<direct_packet_loss, next_packet_loss, direct_packet_loss)) as next_packet_loss,
   AVG(real_packet_loss) as real_packet_loss,
 FROM
-  `analytics.rematch_session_summary` as session_summary
+  `analytics.session_summary` as session_summary
 INNER JOIN
-  `analytics.rematch_session_update` AS session_update
+  `analytics.session_update` AS session_update
 ON
   session_summary.session_id = session_update.session_id
 WHERE

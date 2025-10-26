@@ -9,7 +9,7 @@ WITH
       SUM(IF(next_rtt>0,next_packet_loss,0)) as next_packet_loss,
       SUM(real_packet_loss) as real_packet_loss,
     FROM
-      `analytics.rematch_session_update` as session_update
+      `analytics.session_update` as session_update
     WHERE
       timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 48 HOUR)
     GROUP BY

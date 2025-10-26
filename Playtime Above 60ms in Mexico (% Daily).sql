@@ -7,9 +7,9 @@ WITH
       SUM(CASE WHEN ( direct_rtt > 60 AND direct_rtt < 500 ) THEN 10.0/3600.0 END) as direct_hours_above_60ms,
       SUM(CASE WHEN ( IF(next_rtt>0, next_rtt, direct_rtt) > 60 AND IF(next_rtt>0, next_rtt, direct_rtt) < 500 ) THEN 10.0/3600.0 END) as next_hours_above_60ms,
     FROM
-      `analytics.rematch_session_summary` as session_summary
+      `analytics.session_summary` as session_summary
     INNER JOIN
-      `analytics.rematch_session_update` AS session_update
+      `analytics.session_update` AS session_update
     ON
       session_summary.session_id = session_update.session_id
     WHERE

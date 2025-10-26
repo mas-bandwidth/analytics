@@ -7,7 +7,7 @@ WITH
       SUM(direct_rtt) as direct_rtt,
       SUM(IF(next_rtt>0 AND next_rtt<direct_rtt,next_rtt,direct_rtt)) as next_rtt,
     FROM
-      `analytics.rematch_session_update` as session_update
+      `analytics.session_update` as session_update
     WHERE
       (session_update.timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 90 DAY))
     GROUP BY

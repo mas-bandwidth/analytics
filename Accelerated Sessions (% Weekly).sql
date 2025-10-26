@@ -8,7 +8,7 @@ SELECT
   COUNT(DISTINCT session_id) AS total_sessions,
   COUNT(DISTINCT IF(duration_on_next>0, session_id, NULL)) AS accelerated_sessions,
 FROM
-  `analytics.rematch_session_summary` as session_summary
+  `analytics.session_summary` as session_summary
 WHERE
   timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 90 DAY)
 GROUP BY

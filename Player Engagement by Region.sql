@@ -210,7 +210,7 @@ WITH player AS
     user_hash as player,
     SUM(session_duration/60.0) AS minutes_of_playtime,
   FROM
-    `analytics.rematch_session_summary` as session_summary
+    `analytics.session_summary` as session_summary
   WHERE
     (timestamp >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 90 DAY)) AND
     session_duration > 0 AND 
